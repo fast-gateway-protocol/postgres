@@ -22,7 +22,7 @@ jobs:
             artifact: fgp-postgres-linux-x64
           # ARM Linux requires vendored OpenSSL - TODO: add later
           - target: x86_64-apple-darwin
-            os: macos-13
+            os: macos-14
             artifact: fgp-postgres-macos-x64
           - target: aarch64-apple-darwin
             os: macos-latest
