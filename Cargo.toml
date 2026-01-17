@@ -1,0 +1,48 @@
+[package]
+name = "fgp-postgres"
+version = "0.1.0"
+edition = "2021"
+description = "FGP daemon for direct PostgreSQL database operations"
+license = "MIT"
+repository = "https://github.com/fast-gateway-protocol/postgres"
+authors = ["Wolfgang Schoenberger"]
+
+[[bin]]
+name = "fgp-postgres"
+path = "src/main.rs"
+
+[dependencies]
+# FGP daemon SDK
+fgp-daemon = { git = "https://github.com/fast-gateway-protocol/daemon.git" }
+
+# Postgres driver
+tokio-postgres = { version = "0.7", features = ["with-serde_json-1", "with-chrono-0_4"] }
+deadpool-postgres = { version = "0.14", features = ["serde"] }
+postgres-types = { version = "0.2", features = ["derive"] }
+
+# TLS support
+native-tls = "0.2"
+postgres-native-tls = "0.5"
+
+# Serialization
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+
+# Async runtime
+tokio = { version = "1", features = ["rt-multi-thread", "net", "time", "sync"] }
+
+# Logging
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+
+# Date/time
+chrono = "0.4"
+
+# Utilities
+anyhow = "1"
+dirs = "6.0"
+clap = { version = "4", features = ["derive"] }
+shellexpand = "3.1"
+libc = "0.2"
+daemonize = "0.5"
+url = "2.5"
